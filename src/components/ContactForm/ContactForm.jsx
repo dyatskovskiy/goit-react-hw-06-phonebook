@@ -30,7 +30,11 @@ export const ContactForm = () => {
       }}
       validationSchema={contactsFormSchema}
       onSubmit={(values, actions) => {
-        if (contacts.some(contact => contact.name === values.name)) {
+        if (
+          contacts.some(
+            contact => contact.name.toLowerCase() === values.name.toLowerCase()
+          )
+        ) {
           return alert(`${values.name} is already in contacts!`);
         }
 
